@@ -1,53 +1,5 @@
-const certificates = [
-  {
-    title: "Full Stack Java Development with UI/UX Design",
-    organization: "Alo Educational Hub",
-    date: "Jan 2026 – Jul 2026",
-    description:
-      "Professional training in Full Stack Java Development and UI/UX Design with hands-on experience in Java, web technologies, MySQL and design tools.",
-    file: "/certificates/full-stack-java.pdf",
-  },
-  {
-    title: "Workshop Certificate",
-    organization: "Keltron",
-    date: "2026",
-    description:
-      "Participated in a technical workshop conducted by Keltron and gained exposure to industry-oriented technical concepts.",
-    file: null,
-  },
-  {
-    title: "C & Java Training Internship Program",
-    organization: "Arunachala NextGen Solution Pvt. Ltd.",
-    date: "2025",
-    description:
-      "Completed practical training in C and Java programming with hands-on learning in programming fundamentals and application development.",
-    file: null,
-  },
-  {
-    title: "UI/UX Design",
-    organization: "Arunachala Technology",
-    date: "2024",
-    description:
-      "Completed UI/UX Design training with practical experience in interface design, wireframing, prototyping and user-centered design.",
-    file: null,
-  },
-  {
-    title: "UI/UX Design Internship",
-    organization: "AK INFOPARK",
-    date: "2023",
-    description:
-      "Completed an internship focused on creating user-friendly wireframes, prototypes and responsive interfaces using Figma.",
-    file: null,
-  },
-  {
-    title: "Higher Diploma in Computer Applications",
-    organization: "CSC",
-    date: "2022",
-    description:
-      "Completed the Higher Diploma in Computer Applications, gaining foundational knowledge in computer applications and software tools.",
-    file: null,
-  },
-];
+import Link from "next/link";
+import { certificates } from "../../data/certificates";
 
 export default function CertificateCard() {
   return (
@@ -65,7 +17,7 @@ export default function CertificateCard() {
             Achievements
           </p>
 
-          <h2 className="text-4xl font-bold leading-tight sm:text-5xl">
+          <h2 className="text-4xl font-bold leading-tight text-white sm:text-5xl">
             Certificates &
             <span className="text-cyan-400"> Achievements.</span>
           </h2>
@@ -76,11 +28,13 @@ export default function CertificateCard() {
           </p>
 
         </div>
+
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 
           {certificates.map((certificate) => (
+
             <div
-              key={certificate.title}
+              key={certificate.slug}
               className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/80 p-7 shadow-2xl transition duration-300 hover:-translate-y-2 hover:border-cyan-400/50"
             >
 
@@ -114,29 +68,29 @@ export default function CertificateCard() {
 
               </div>
 
-             
-              {certificate.file ? (
-                <a
-                  href={certificate.file}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative mt-8 inline-flex w-fit items-center gap-2 rounded-full border border-slate-700 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-400"
-                >
-                  View Certificate
-                  <span className="text-cyan-400">↗</span>
-                </a>
-              ) : (
-                <span className="relative mt-8 inline-flex w-fit items-center rounded-full border border-slate-800 px-5 py-2.5 text-sm text-slate-500">
-                  Certificate Available
-                </span>
-              )}
+              {/* View Certificate */}
+              <Link
+                href={
+                  certificate.file
+                    ? certificate.file
+                    : `/certificates/${certificate.slug}`
+                }
+                target={certificate.file ? "_blank" : undefined}
+                rel={certificate.file ? "noopener noreferrer" : undefined}
+                className="relative mt-8 inline-flex w-fit items-center gap-2 rounded-full border border-slate-700 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-400"
+              >
+                View Certificate
+                <span className="text-cyan-400">↗</span>
+              </Link>
 
             </div>
+
           ))}
 
         </div>
 
       </div>
+
     </section>
   );
 }

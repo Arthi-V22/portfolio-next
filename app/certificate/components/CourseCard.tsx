@@ -1,33 +1,4 @@
-const courses = [
-  {
-    number: "01",
-    title: "Full Stack Java Development",
-    organization: "Alo Educational Hub",
-    period: "Jan 2026 – Jul 2026",
-    skills: ["Java", "HTML", "CSS", "Bootstrap", "MySQL"],
-  },
-  {
-    number: "02",
-    title: "C & Java Training",
-    organization: "Arunachala NextGen Solution Pvt. Ltd.",
-    period: "2025",
-    skills: ["C", "Java", "Programming"],
-  },
-  {
-    number: "03",
-    title: "UI/UX Design",
-    organization: "Arunachala Technology",
-    period: "2024",
-    skills: ["Figma", "Wireframing", "Prototyping", "UI Design"],
-  },
-  {
-    number: "04",
-    title: "Higher Diploma in Computer Applications",
-    organization: "CSC",
-    period: "2022",
-    skills: ["Computer Applications", "Office Tools", "Programming"],
-  },
-];
+import { courses } from "../../data/courses";
 
 export default function CourseCard() {
   return (
@@ -36,15 +7,12 @@ export default function CourseCard() {
       <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-blue-500/10 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl">
-
-      
         <div className="mb-14 max-w-3xl">
-
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
             Continuous Learning
           </p>
 
-          <h2 className="text-4xl font-bold leading-tight sm:text-5xl">
+          <h2 className="text-4xl font-bold leading-tight text-white sm:text-5xl">
             Courses &
             <span className="text-cyan-400"> Training.</span>
           </h2>
@@ -53,12 +21,9 @@ export default function CourseCard() {
             Training programs that helped me build my development,
             programming and UI/UX design skills.
           </p>
-
         </div>
 
-   
         <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70">
-
           {courses.map((course, index) => (
             <div
               key={course.number}
@@ -75,9 +40,7 @@ export default function CourseCard() {
                 </span>
               </div>
 
-          
               <div>
-
                 <h3 className="text-xl font-semibold text-white transition group-hover:text-cyan-400">
                   {course.title}
                 </h3>
@@ -86,9 +49,7 @@ export default function CourseCard() {
                   {course.organization}
                 </p>
 
-      
                 <div className="mt-5 flex flex-wrap gap-2">
-
                   {course.skills.map((skill) => (
                     <span
                       key={skill}
@@ -97,21 +58,15 @@ export default function CourseCard() {
                       {skill}
                     </span>
                   ))}
-
                 </div>
-
               </div>
 
-         
               <span className="text-sm text-slate-400 md:text-right">
                 {course.period}
               </span>
-
             </div>
           ))}
-
         </div>
-
       </div>
     </section>
   );

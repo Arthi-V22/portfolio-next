@@ -1,66 +1,6 @@
 import Link from "next/link";
-
-const projectData = {
-  "e-commerce": {
-    title: "E-Commerce Website",
-    type: "Web Development",
-    description:
-      "A responsive shopping application designed to provide users with a simple and user-friendly online shopping experience.",
-    technologies: [
-      "React.js",
-      "JavaScript",
-      "HTML",
-      "CSS",
-      "Bootstrap",
-    ],
-    features: [
-      "Product search",
-      "Product filtering",
-      "Shopping cart",
-      "Responsive user interface",
-    ],
-  },
-
-  "qr-code-generator": {
-    title: "QR Code Generator",
-    type: "Full Stack Development",
-    description:
-      "A QR code generation application developed using Java, Spring Boot and MySQL.",
-    technologies: ["Java", "Spring Boot", "MySQL"],
-    features: [
-      "QR code generation",
-      "Spring Boot backend",
-      "MySQL database integration",
-    ],
-  },
-
-  "ai-mediaguard": {
-    title: "AI MediaGuard",
-    type: "Deep Learning Project",
-    description:
-      "An intelligent system for detecting AI-generated and manipulated images and videos using deep learning technology.",
-    technologies: ["Deep Learning", "Computer Vision"],
-    features: [
-      "AI-generated media detection",
-      "Manipulated image detection",
-      "Manipulated video detection",
-    ],
-  },
-
-  eventhub: {
-    title: "EventHub",
-    type: "UI/UX Design",
-    description:
-      "A UI/UX design project focused on creating a smart event planning experience for discovering and comparing event venues and vendors.",
-    technologies: ["Figma", "UI/UX Design"],
-    features: [
-      "User flow design",
-      "Wireframes",
-      "Responsive interface design",
-      "Event venue and vendor experience",
-    ],
-  },
-};
+import { notFound } from "next/navigation";
+import { projects } from "../../../data/project";
 
 type ProjectDetailsProps = {
   slug: string;
@@ -69,32 +9,17 @@ type ProjectDetailsProps = {
 export default function ProjectDetails({
   slug,
 }: ProjectDetailsProps) {
-  const project =
-    projectData[slug as keyof typeof projectData];
+  const project = projects.find(
+    (project) => project.slug === slug
+  );
 
   if (!project) {
-    return (
-      <main className="flex min-h-screen items-center justify-center bg-slate-950 px-6 text-white">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold">
-            Project Not Found
-          </h1>
-
-          <Link
-            href="/projects"
-            className="mt-6 inline-block text-cyan-400"
-          >
-            ← Back to Projects
-          </Link>
-        </div>
-      </main>
-    );
+    notFound();
   }
 
   return (
-    <main className="min-h-screen bg-slate-950 px-6 py-24 text-white">
+    <div className="min-h-screen bg-slate-950 px-6 py-24 text-white">
       <div className="mx-auto max-w-5xl">
-
         <Link
           href="/projects"
           className="text-sm font-medium text-cyan-400"
@@ -153,8 +78,7 @@ export default function ProjectDetails({
             ))}
           </div>
         </section>
-
       </div>
-    </main>
+    </div>
   );
 }

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 const navLinks = [
-  { name: "Home", href: "/home" },
+  { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Skills", href: "/skills" },
   { name: "Projects", href: "/projects" },
@@ -22,7 +22,7 @@ export default function Navbar() {
 
 
         <Link
-          href="/home"
+          href="/"
           className="text-xl font-bold tracking-tight text-white"
           onClick={() => setIsOpen(false)}
         >

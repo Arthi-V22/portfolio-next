@@ -138,8 +138,6 @@ export default function AboutIntro() {
               </p>
 
             </div>
-
-            {/* Status */}
             <div className="border-t border-slate-800 px-6 py-5">
               <div className="flex items-center gap-3">
                 <span className="h-2 w-2 rounded-full bg-cyan-400" />
