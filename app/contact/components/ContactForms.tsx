@@ -49,12 +49,10 @@ export default function ContactForm() {
   const validateForm = () => {
     const newErrors: FormErrors = {};
 
-    // Name
     if (!formData.name.trim()) {
       newErrors.name = "Please enter your name.";
     }
 
-    // Email
     if (!formData.email.trim()) {
       newErrors.email = "Please enter your email.";
     } else if (
@@ -63,12 +61,10 @@ export default function ContactForm() {
       newErrors.email = "Please enter a valid email address.";
     }
 
-    // Subject
     if (!formData.subject.trim()) {
       newErrors.subject = "Please enter a subject.";
     }
 
-    // Message
     if (!formData.message.trim()) {
       newErrors.message = "Please enter your message.";
     }
@@ -130,7 +126,6 @@ export default function ContactForm() {
         );
       }
 
-      // Success
       setStatus("Message sent successfully!");
 
       setFormData({
@@ -158,14 +153,13 @@ export default function ContactForm() {
 
   return (
     <section className="relative min-h-screen overflow-hidden px-6 py-24">
-      {/* Background Effects */}
+  
       <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl" />
 
       <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl">
 
-        {/* Heading */}
         <div className="mb-14 max-w-3xl">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
             Get In Touch
@@ -184,10 +178,8 @@ export default function ContactForm() {
           </p>
         </div>
 
-        {/* Main Grid */}
         <div className="grid gap-10 lg:grid-cols-2">
 
-          {/* Contact Information */}
           <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl">
 
             <p className="mb-8 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-400">
@@ -196,7 +188,6 @@ export default function ContactForm() {
 
             <div className="space-y-7">
 
-              {/* Email */}
               <div className="flex gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-slate-700 bg-slate-950 text-cyan-400">
                   @
@@ -216,7 +207,6 @@ export default function ContactForm() {
                 </div>
               </div>
 
-              {/* Phone */}
               <div className="flex gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-slate-700 bg-slate-950 text-cyan-400">
                   ☎
@@ -236,7 +226,6 @@ export default function ContactForm() {
                 </div>
               </div>
 
-              {/* Location */}
               <div className="flex gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-slate-700 bg-slate-950 text-cyan-400">
                   ●
@@ -254,7 +243,6 @@ export default function ContactForm() {
               </div>
             </div>
 
-            {/* Social Links */}
             <div className="mt-10 border-t border-slate-800 pt-8">
 
               <p className="mb-4 text-sm text-slate-500">
@@ -287,8 +275,6 @@ export default function ContactForm() {
               </div>
             </div>
           </div>
-
-          {/* Form */}
           <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl">
 
             <p className="mb-8 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-400">
@@ -300,7 +286,6 @@ export default function ContactForm() {
               className="space-y-6"
             >
 
-              {/* Name */}
               <div>
                 <label
                   htmlFor="name"
@@ -326,7 +311,6 @@ export default function ContactForm() {
                 )}
               </div>
 
-              {/* Email */}
               <div>
                 <label
                   htmlFor="email"
@@ -352,7 +336,6 @@ export default function ContactForm() {
                 )}
               </div>
 
-              {/* Subject */}
               <div>
                 <label
                   htmlFor="subject"
@@ -377,8 +360,6 @@ export default function ContactForm() {
                   </p>
                 )}
               </div>
-
-              {/* Message */}
               <div>
                 <label
                   htmlFor="message"
@@ -403,8 +384,6 @@ export default function ContactForm() {
                   </p>
                 )}
               </div>
-
-              {/* Success / Error */}
               {status && (
                 <p
                   className={`text-sm ${
@@ -417,7 +396,6 @@ export default function ContactForm() {
                 </p>
               )}
 
-              {/* Button */}
               <button
                 type="submit"
                 disabled={isSending}
