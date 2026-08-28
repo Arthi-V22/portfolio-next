@@ -176,6 +176,7 @@ export default function AboutIntro() {
             <p className="mt-3 text-sm leading-6 text-slate-500">
               I care about creating interfaces that are intuitive,
               responsive and easy to use.
+              
             </p>
           </div>
 
